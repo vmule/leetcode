@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import os
 import sys
 import unittest
@@ -5,8 +7,8 @@ import unittest
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.append(os.path.dirname(SCRIPT_DIR))
 
-from lib.my_llist import LinkedList
-from add_two_numbers import Solution
+from lib.my_llist import LinkedList  # noqa: E402
+from add_two_numbers import Solution  # noqa: E402
 
 
 def main(list1, list2):
