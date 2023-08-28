@@ -10,7 +10,6 @@ from length_of_longest_substring import Solution  # noqa: E402
 
 
 def main(s: str) -> int:
-    # _object = Solution()
     result = Solution().lengthOfLongestSubstring(s)
     return result
 
