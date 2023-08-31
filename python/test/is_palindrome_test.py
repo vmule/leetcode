@@ -14,7 +14,7 @@ def main(x: int) -> bool:
     return result
 
 
-class test_sum(unittest.TestCase):
+class test(unittest.TestCase):
     def test_one(self):
         num = 47
         returned_value = main(num)

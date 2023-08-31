@@ -14,7 +14,7 @@ def main(s: str) -> int:
     return result
 
 
-class test_sum(unittest.TestCase):
+class test(unittest.TestCase):
     def test_one(self):
         s = "caneeee"
         returned_value = main(s)

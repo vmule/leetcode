@@ -15,7 +15,7 @@ def main(strs: List[str]) -> str:
     return result
 
 
-class test_sum(unittest.TestCase):
+class test(unittest.TestCase):
     def test_one(self):
         words = ["flower", "flow", "flight"]
         returned_value = main(words)

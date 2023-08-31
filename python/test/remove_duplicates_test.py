@@ -15,7 +15,7 @@ def main(nums: List[int]) -> int:
     return result
 
 
-class test_sum(unittest.TestCase):
+class test(unittest.TestCase):
     def test_one(self):
         nums = [0, 0, 1, 2, 2, 2, 3, 4]
         returned_value = main(nums)

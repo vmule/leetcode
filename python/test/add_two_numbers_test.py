@@ -31,7 +31,7 @@ def main(list1, list2):
     return result_list
 
 
-class test_sum(unittest.TestCase):
+class test(unittest.TestCase):
     def test_zero_array(self):
         list1 = [0]
         list2 = [0]
