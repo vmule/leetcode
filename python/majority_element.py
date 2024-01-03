@@ -7,11 +7,14 @@ class Solution:
     """
 
     def majorityElement(self, nums: List[int]) -> int:
-        output = max(set(nums), key=nums.count)
-        return output
+        count, res = 0, 0
 
-        # Alternative solution
+        for num in nums:
+            if count == 0:
+                res = num
 
-        # nums.sort()
-        # n = len(nums)
-        # return nums[n // 2]
+            if res == num:
+                count += 1
+            else:
+                count -= 1
+        return res
