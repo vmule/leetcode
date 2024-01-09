@@ -6,22 +6,14 @@ class Solution:
     https://leetcode.com/problems/product-of-array-except-self
     """
 
-    def prod(self, nums: List[int]) -> int:
-        result = 1
-        for _, e in enumerate(nums):
-            result = result * e
-        return result
-
     def productExceptSelf(self, nums: List[int]) -> List[int]:
-        answer = []
-        prod = self.prod(nums)
-        for index, value in enumerate(nums):
-            # print(index)
-            if value == 0:
-                nums[index] = 1
-                nonzero_prod = self.prod(nums)
-                answer.append(nonzero_prod)
-                nums[index] = 0
-            else:
-                answer.append(prod // nums[index])
+        answer = [1] * (len(nums))
+        prefix = 1
+        for i in range(len(nums)):
+            answer[i] = prefix
+            prefix = prefix * nums[i]
+        postfix = 1
+        for i in range(len(nums) - 1, -1, -1):
+            answer[i] = answer[i] * postfix
+            postfix = postfix * nums[i]
         return answer

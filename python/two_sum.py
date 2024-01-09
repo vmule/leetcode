@@ -2,21 +2,13 @@ from typing import List
 
 
 class Solution:
-    """
-    https://leetcode.com/problems/two-sum-ii-input-array-is-sorted
-    """
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        seen = {}
 
-    def twoSum(self, numbers: List[int], target: int) -> List[int]:
-        index = 0
-        result = []
-        for index, _ in enumerate(numbers):
-            rem = target - numbers[index]
-            tmp = numbers[index]
-            # -1000 <= numbers[i] <= 1000
-            numbers[index] = 9999
-            if rem in numbers:
-                result.append(index + 1)
-                result.append(numbers.index(rem) + 1)
+        for index, num in enumerate(nums):
+            diff = target - num
+            if diff in seen:
+                result = [seen[diff], index]
                 return result
-            numbers[index] = tmp
-        return []
+            else:
+                seen[num] = index
