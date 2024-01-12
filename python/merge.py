@@ -2,17 +2,28 @@ from typing import List
 
 
 class Solution:
-    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> List[int]:
+    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
         """
-        https://leetcode.com/problems/merge-sorted-array
+        Do not return anything, modify nums1 in-place instead.
         """
 
-        i = m
-        _ = n
+        # last index num1
+        last = m + n - 1
+        n = n - 1
+        m = m - 1
 
-        for element in nums2:
-            nums1[i] = element
-            i = i + 1
+        # merge in reverse order
+        while m >= 0 and n >= 0:
+            if nums1[m] > nums2[n]:
+                nums1[last] = nums1[m]
+                m -= 1
+            else:
+                nums1[last] = nums2[n]
+                n -= 1
+            last -= 1
 
-        nums1.sort()
-        return nums1
+        # append any leftovers from num2
+        while n >= 0:
+            nums1[last] = nums2[n]
+            n -= 1
+            last -= 1
