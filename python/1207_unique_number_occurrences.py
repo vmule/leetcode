@@ -2,11 +2,14 @@ from typing import List
 
 
 class Solution:
+    """
+    https://leetcode.com/problems/unique-number-of-occurrences
+    """
+
     def uniqueOccurrences(self, arr: List[int]) -> bool:
-        count = {}
-        for element in arr:
-            count[element] = count.get(element, 0) + 1
+        countN = {}
+        for e in arr:
+            countN[e] = countN.get(e, 0) + 1
 
-        count_uniq = set(count.values())
-
-        return len(count) == len(count_uniq)
+        count_values = countN.values()
+        return len(count_values) == len(set(count_values))
