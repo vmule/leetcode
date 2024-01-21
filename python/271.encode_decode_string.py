@@ -14,10 +14,8 @@ class Solution:
         if len(strs) < 1:
             return encoded
 
-        _len = 0
         for string in strs:
-            _len = len(string) + 2
-            encoded = encoded + str(_len) + "#" + string
+            encoded = encoded + str(len(string)) + "#" + string
 
         return encoded
 
@@ -29,16 +27,20 @@ class Solution:
     def decode(self, _str):
         # write your code here
 
-        decoded = []
-
         if len(_str) < 1:
-            return decoded
+            return []
 
-        left, right = 0, 0
+        decoded = []
+        i = 0
 
-        while right < len(_str):
-            left = right + 2
-            right = right + int(_str[(right)])
-            decoded.append(_str[left:right])
+        while i < len(_str):
+            j = i
+            while _str[j] != "#":
+                j += 1
+
+            length = int(_str[i:j])
+            word_end = j + 1 + length
+            decoded.append(_str[j + 1 : word_end])
+            i = word_end
 
         return decoded
