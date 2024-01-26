@@ -39,8 +39,8 @@ class Solution:
                 j += 1
 
             length = int(_str[i:j])
-            word_end = j + 1 + length
-            decoded.append(_str[j + 1 : word_end])
+            word_end = j + length
+            decoded.append(_str[j + 1 : word_end + 1])
             i = word_end
 
         return decoded
