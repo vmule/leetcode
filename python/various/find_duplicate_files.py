@@ -134,6 +134,9 @@ def main():
 
     print(" ")
 
+    if len(duplicates) > 0:
+        print("Duplicates found:")
+
     for element in sorted(duplicates):
         for filename in element[1:]:
             print(filename)
