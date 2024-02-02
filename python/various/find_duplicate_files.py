@@ -133,13 +133,20 @@ def main():
     print("All tests passed!!")
 
     print(" ")
-
     if len(duplicates) > 0:
-        print("Duplicates found:")
 
-    for element in sorted(duplicates):
-        for filename in element[1:]:
-            print(filename)
+        duplicate_count = 0
+        for element in duplicates:
+            for filename in element[1:]:
+                duplicate_count += 1
+
+        print("Found {0} duplicate files:".format(duplicate_count))
+
+        for element in duplicates:
+            for filename in element[1:]:
+                print(filename)
+    else:
+        print("No duplicates found.")
 
     shutil.rmtree("/tmp/a")
 
