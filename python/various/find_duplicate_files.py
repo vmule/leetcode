@@ -103,20 +103,15 @@ def main():
         ["/tmp/a/file1", "/tmp/a/b/c/file2"],
         ["/tmp/a/file4", "/tmp/a/b/file3"],
     ]
+
     test = unittest.TestCase()
 
     start_time = time.time()
     duplicates = find_duplicate_files(path)
+
     print(
         "--- Multiprocess execution took  %s seconds ---" % (time.time() - start_time)
     )
-
-    print(" ")
-
-    for element in duplicates:
-        print(element)
-
-    print(" ")
 
     test.assertEqual(len(duplicates), len(expected_result))
     for i in range(len(duplicates)):
@@ -131,16 +126,17 @@ def main():
 
     print(" ")
 
-    for element in sorted(duplicates):
-        print(element)
-
-    print(" ")
-
     test.assertEqual(len(duplicates), len(expected_result))
     for i in range(len(duplicates)):
         test.assertCountEqual(duplicates[i], expected_result[i])
 
     print("All tests passed!!")
+
+    print(" ")
+
+    for element in sorted(duplicates):
+        for filename in element[1:]:
+            print(filename)
 
     shutil.rmtree("/tmp/a")
 
