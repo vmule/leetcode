@@ -29,13 +29,11 @@ def cd(pwd, path):
 
     abs_path = "/".join(split_pwd)
 
-    split_abs_path = abs_path.split("/")
-
-    while len(split_abs_path) > 1:
-        sub_path = "/".join(split_abs_path)
+    while len(split_pwd) > 1:
+        sub_path = "/".join(split_pwd)
         real_sub_path = find_sym(SYMLINKS, sub_path)
         if real_sub_path == sub_path:
-            split_abs_path.pop()
+            split_pwd.pop()
         else:
             abs_path = abs_path.replace(sub_path, real_sub_path)
             break
