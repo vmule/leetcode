@@ -41,11 +41,40 @@ def cd(pwd, path):
 
 
 assert cd("/home/vito", "../../etc/var/log") == "/etc/var/log"
+print(
+    "pwd: {0}, cd {1}, pwd: {2}".format(
+        "/home/vito", "../../etc/var/log", "/etc/var/log"
+    )
+)
+
 assert cd("/etc", "var/log") == "/etc/var/log"
+print("pwd: {0}, cd {1}, pwd: {2}".format("/etc", "var/log", "/etc/var/log"))
+
 assert cd("/home/vito", "/") == "/"
+print("pwd: {0}, cd {1}, pwd: {2}".format("/home/vito", "/", "/"))
+
 assert cd("/home/vito", "..") == "/home"
+print(
+    "pwd: {0}, cd {1}, pwd: {2}".format(
+        "/home/vito", "../../etc/var/log", "/etc/var/log"
+    )
+)
+
 assert cd("/home/vito", "../../home/franco") == "/home/franco"
+print(
+    "pwd: {0}, cd {1}, pwd: {2}".format(
+        "/home/vito", "../../home/franco", "/home/franco"
+    )
+)
+
 assert cd("/home/vito", "/home/x") == "/home/vito"
+print("pwd: {0}, cd {1}, pwd: {2}".format("/home/vito", "/home/x", "/home/vito"))
+
 assert cd("/home/vito", "/home/x/banana/cane") == "/home/vito/banana/cane"
+print(
+    "pwd: {0}, cd {1}, pwd: {2}".format(
+        "/home/vito", "/home/x/banana/cane", "/home/vito/banana/cane"
+    )
+)
 
 print("All tests passed!!")
