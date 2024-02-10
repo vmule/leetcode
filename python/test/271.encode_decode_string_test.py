@@ -47,9 +47,9 @@ class test(unittest.TestCase):
         self.assertEqual(decoded, strs)
 
     def test_four(self):
-        strs = ["bananana", "bananabanana"]
+        strs = ["bana#nana", "bananabanana"]
         encoded, decoded = main(strs)
-        self.assertEqual(encoded, "8#bananana12#bananabanana")
+        self.assertEqual(encoded, "9#bana#nana12#bananabanana")
         self.assertEqual(decoded, strs)
 
 

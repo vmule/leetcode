@@ -41,6 +41,6 @@ class Solution:
             length = int(_str[i:j])
             word_end = j + length
             decoded.append(_str[j + 1 : word_end + 1])
-            i = word_end
+            i = word_end + 1
 
         return decoded
