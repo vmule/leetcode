@@ -1,5 +1,6 @@
 from collections import defaultdict
 from queue import Queue
+from typing import List
 
 
 class Solution:
