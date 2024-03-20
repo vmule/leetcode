@@ -2,7 +2,8 @@
 
 class Solution {
  public:
-    int getCommon(std::vector<int>& nums1, std::vector<int>& nums2) {
+    int getCommon(const std::vector<int>& nums1,
+                  const std::vector<int>& nums2) {
         int p1 = 0;
         int p2 = 0;
 

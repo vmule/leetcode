@@ -2,7 +2,7 @@
 
 class Solution {
  public:
-    int pivotInteger(int n) {
+    int pivotInteger(const int& n) {
         int sum = n * (n + 1) / 2;
         double a = std::sqrt(sum);
 

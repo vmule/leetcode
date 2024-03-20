@@ -1,5 +1,6 @@
 #include <cassert>
 #include <chrono>
+#include <cstdint>
 #include <iostream>
 #include <vector>
 
@@ -149,7 +150,7 @@ int main() {
         freeList(mergedList);
     }
 
-    long long averageTime = totalTime / numTrials;
+    int64_t averageTime = totalTime / numTrials;
 
     std::cout << "Average execution time over " << numTrials
               << " trials: " << averageTime << " nanoseconds" << std::endl;

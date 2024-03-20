@@ -3,7 +3,7 @@
 
 class Solution {
  public:
-    std::vector<int> twoSum(std::vector<int>& nums, int target) {
+    std::vector<int> twoSum(const std::vector<int>& nums, int target) {
         std::unordered_map<int, int> seen;
         std::vector<int> result;
 
