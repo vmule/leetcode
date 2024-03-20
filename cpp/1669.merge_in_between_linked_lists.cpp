@@ -6,10 +6,10 @@
 // Definition for singly-linked list.
 struct ListNode {
     int val;
-    ListNode *next;
+    ListNode* next;
     ListNode() : val(0), next(nullptr) {}
     ListNode(int x) : val(x), next(nullptr) {}
-    ListNode(int x, ListNode *next) : val(x), next(next) {}
+    ListNode(int x, ListNode* next) : val(x), next(next) {}
 };
 
 // Function to create a list from a vector
@@ -52,11 +52,12 @@ void freeList(ListNode* head) {
 }
 
 /*
- * You are given two linked lists: list1 and list2 of sizes n and m respectively.
- * Remove list1's nodes from the ath node to the bth node, and put list2 in their place.
-*/
+ * You are given two linked lists: list1 and list2 of sizes n and m
+ * respectively. Remove list1's nodes from the ath node to the bth node, and put
+ * list2 in their place.
+ */
 class Solution {
-public:
+ public:
     ListNode* mergeInBetween(ListNode* list1, int a, int b, ListNode* list2) {
         // Find the node just before position 'a'
         ListNode* prev_a = nullptr;
@@ -93,13 +94,13 @@ public:
     }
 };
 
-
 int main() {
     // Test input
     std::vector<int> list1Vec = {0, 1, 2, 3, 4, 5, 6};
     std::vector<int> list2Vec = {1000000, 1000001, 1000002, 1000003, 1000004};
-    std::vector<int> expectedVec = {0, 1, 1000000, 1000001, 1000002, 1000003, 1000004, 6};
-    int a = 2, b = 5;
+    std::vector<int> expectedVec = {0,       1,       1000000, 1000001,
+                                    1000002, 1000003, 1000004, 6};
+    unsigned a = 2, b = 5;
 
     // Create linked lists from the vectors
     ListNode* list1 = vectorToList(list1Vec);
@@ -113,7 +114,7 @@ int main() {
     // Check if the output is as expected
     assert(areListsEqual(mergedList, expected));
 
-    std::cout << "Solution works!"  << std::endl;
+    std::cout << "Solution works!" << std::endl;
 
     freeList(mergedList);
 
@@ -141,15 +142,17 @@ int main() {
         ListNode* mergedList = solution.mergeInBetween(list1, a, b, list2);
 
         auto end = std::chrono::high_resolution_clock::now();
-        totalTime += std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count();
+        totalTime +=
+            std::chrono::duration_cast<std::chrono::nanoseconds>(end - start)
+                .count();
 
         freeList(mergedList);
     }
 
-
     long long averageTime = totalTime / numTrials;
 
-    std::cout << "Average execution time over " << numTrials << " trials: " << averageTime << " nanoseconds" << std::endl;
+    std::cout << "Average execution time over " << numTrials
+              << " trials: " << averageTime << " nanoseconds" << std::endl;
 
     return 0;
 }

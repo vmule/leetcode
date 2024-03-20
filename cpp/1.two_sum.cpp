@@ -2,7 +2,7 @@
 #include <vector>
 
 class Solution {
-public:
+ public:
     std::vector<int> twoSum(std::vector<int>& nums, int target) {
         std::unordered_map<int, int> seen;
         std::vector<int> result;
@@ -15,8 +15,7 @@ public:
                 result.push_back(seen[diff]);
                 result.push_back(i);
                 return result;
-            }
-            else {
+            } else {
                 seen[num] = i;
                 ++i;
             }
