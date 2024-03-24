@@ -8,39 +8,64 @@ struct ListNode {
 class Solution {
  public:
     ListNode* getIntersectionNode(ListNode* headA, ListNode* headB) {
-        int lengthA = 0;
-        ListNode* nodeA = headA;
-        while (nodeA) {
-            nodeA = nodeA->next;
-            ++lengthA;
-        }
+        ListNode* node1 = headA;
+        ListNode* node2 = headB;
 
-        int lengthB = 0;
-        ListNode* nodeB = headB;
-        while (nodeB) {
-            nodeB = nodeB->next;
-            ++lengthB;
-        }
-
-        if (lengthA > lengthB) {
-            int diff = lengthA - lengthB;
-            while (headA && diff > 0) {
-                headA = headA->next;
-                --diff;
+        while (node1 != node2) {
+            if (!node1) {
+                node1 = headB;
+            } else {
+                node1 = node1->next;
             }
-        } else if (lengthA < lengthB) {
-            int diff = lengthB - lengthA;
-            while (headB && diff > 0) {
-                headB = headB->next;
-                --diff;
+            if (!node2) {
+                node2 = headA;
+            } else {
+                node2 = node2->next;
             }
         }
-
-        while (headA != headB) {
-            headA = headA->next;
-            headB = headB->next;
-        }
-
-        return headA;
+        return node1;
     }
 };
+
+/**
+ * Alternative longer solution
+ * class Solution {
+ *  public:
+ *     ListNode* getIntersectionNode(ListNode* headA, ListNode* headB) {
+ *         int lengthA = 0;
+ *         ListNode* nodeA = headA;
+ *         while (nodeA) {
+ *             nodeA = nodeA->next;
+ *             ++lengthA;
+ *         }
+ *
+ *         int lengthB = 0;
+ *         ListNode* nodeB = headB;
+ *         while (nodeB) {
+ *             nodeB = nodeB->next;
+ *             ++lengthB;
+ *         }
+ *
+ *         if (lengthA > lengthB) {
+ *             int diff = lengthA - lengthB;
+ *             while (headA && diff > 0) {
+ *                 headA = headA->next;
+ *                 --diff;
+ *             }
+ *         } else if (lengthA < lengthB) {
+ *             int diff = lengthB - lengthA;
+ *             while (headB && diff > 0) {
+ *                 headB = headB->next;
+ *                 --diff;
+ *             }
+ *         }
+ *
+ *         while (headA != headB) {
+ *             headA = headA->next;
+ *             headB = headB->next;
+ *         }
+ *
+ *         return headA;
+ *     }
+ * };
+ * */
